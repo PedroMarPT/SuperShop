@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using SuperShop.Data;
 using SuperShop.Data.Entities;
 using System;
 using System.Collections.Generic;
@@ -29,6 +30,9 @@ namespace SuperShop
             {
                 cfg.UseSqlServer(this.Configuration.GetConnectionString("DefaultConnectin"));
             });
+
+            services.AddTransient<SeedDb>();
+       
             services.AddControllersWithViews();
         }
 
