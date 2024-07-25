@@ -3,9 +3,10 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using SuperShop.Data.Entities;
 
+
 namespace SuperShop.Data
 {
-    public class GenericRepository<T> : IGenericRepository <T> where T : class, IEntity
+    public class GenericRepository<T> : IGenericRepository<T> where T : class, IEntity
     {
         private readonly DataContext _context;
         public GenericRepository(DataContext context) 
