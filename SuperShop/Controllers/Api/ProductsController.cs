@@ -17,7 +17,7 @@ namespace SuperShop.Controllers.Api
         [HttpGet]
         public IActionResult GetProducts()
         { 
-            return Ok(_producRepository.GetAll());
+            return Ok(_producRepository.GetAllWithUser());
         }
     }
 }

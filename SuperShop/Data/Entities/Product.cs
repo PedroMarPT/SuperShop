@@ -8,13 +8,13 @@ namespace SuperShop.Data.Entities
         public int Id { get; set; }
 
         [Required]
-        [MaxLength(50, ErrorMessage ="The field{0} can contein {1} characters length")]
+        [MaxLength(50, ErrorMessage = "The field{0} can contein {1} characters length")]
         public string Name { get; set; }
 
         [DisplayFormat(DataFormatString = "{0:C2}", ApplyFormatInEditMode = false)]
         public decimal Price { get; set; }
 
-        [Display(Name ="Image")]
+        [Display(Name = "Image")]
         public string ImageUrl { get; set; }
 
         [Display(Name = "Last Purchase")]
@@ -30,5 +30,18 @@ namespace SuperShop.Data.Entities
         public double Stock { get; set; }
 
         public User User { get; set; }
+
+        public string ImageFullPach 
+        {
+            get 
+            {
+                if (string.IsNullOrEmpty(ImageUrl))
+                {
+                    return null; 
+                }
+                return $"https://localhost:44368{ImageUrl.Substring(1)}";
+               // 44368//api/products
+            }
+        }
     }
 }
